@@ -1,0 +1,194 @@
+/* General Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  font-size: 0.7rem;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 8px auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 90vh; /* Full height of the viewport */
+  overflow: hidden; /* To prevent scroll on the outer div */
+}
+
+.header {
+  font-size: 16px;
+  text-align: center;
+  padding: 8px 0;
+  color: #333;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10; /* To make sure the header is on top */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Container Styles */
+.table-container {
+  flex-grow: 1;
+  margin: 4px 0;
+  max-height: calc(100vh - 70px); /* Leave space for header and pagination */
+  overflow-y: auto;
+  padding-bottom: 20px; /* Make sure there's some space at the bottom for pagination */
+
+}
+
+/* Table Styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 4px 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  text-align: center;
+  align-self: center;
+}
+
+.table th {
+  background-color: #f4f4f4;
+  color: #555;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 8px 0;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+  padding: 8px 0;
+  z-index: 10;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.pagination-button {
+  padding: 4px 8px;
+  font-size: 12px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 1px;
+
+}
+
+.pagination-button.active {
+  background-color: #0056b3;
+  font-weight: bold;
+}
+
+.pagination-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.items-per-page-dropdown {
+  padding: 4px 8px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.pagination-box {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .app {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .table th,
+  .table td {
+    font-size: 12px; /* Smaller font for better readability on mobile */
+  }
+
+  .pagination-button {
+    font-size: 10px; /* Adjust pagination button size for mobile */
+  }
+
+  .page-info {
+    font-size: 0.6rem;
+  }
+
+  .items-per-page-dropdown {
+    font-size: 10px; /* Adjust dropdown size */
+  }
+
+  .pagination-box {
+    width: 100%; /* Ensure pagination buttons take full width on mobile */
+    flex-direction: column;
+    align-items: center; /* Center align pagination buttons */
+    justify-content: center; /* Optionally, center vertically as well */
+  }
+
+  .pagination-button {
+    width: 100%; /* Make buttons full width */
+    margin-bottom: 5px; /* Space between buttons on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    padding: 0.4rem;
+  }
+
+  .table th,
+  .table td {
+    font-size: 10px; /* Further reduce font size for very small screens */
+  }
+  .pagination{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .pagination-button {
+    font-size: 10px;
+    padding: 6px; /* Adjust padding for smaller screens */
+  }
+
+  .pagination-box {
+    width: 100%;
+    flex-direction: row;
+    align-items: center; /* Center pagination buttons */
+  }
+
+  .items-per-page-dropdown {
+    font-size: 10px;
+  }
+}
